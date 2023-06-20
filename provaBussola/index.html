@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Cards</title>
+</head>
+<nav class="navbar">
+    <div class="navbar-search">
+        <img src="https://i.imgur.com/iTKWblw.png" alt="Pokemon Logo" class="navbar-logo">
+        <input type="text" id="pokemon-name" placeholder="Enter Pokemon name">
+        <button onclick="displayPokemonByName()">Search</button>
+    </div>
+    <button id="clear-button">Limpar</button>
+  </nav>
+  
+  <div id="pokemon-container"></div>
+<body>
+    <script src="/script.js"></script>
+</body>
+</html>
+<style>
+:root {
+    --red: #EE281F;
+    --yellow: #fd3d3d;
+    --blue: #e1e1e1;
+    --green: #000000;
+  }
+  
+  /* Estilização do contêiner dos Pokémon */
+  #pokemon-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+  }
+  
+  /* Estilização dos cartões de Pokémon */
+  .pokemon-card {
+    background-color: var(--blue);
+    width: 200px;
+    color: var(--yellow);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .pokemon-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .pokemon-image {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    background-color: var(--yellow);
+    object-fit: cover;
+  }
+  
+  .pokemon-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+  
+  .pokemon-attribute {
+    font-family: "Roboto", sans-serif;
+    color: var(--green);
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .pokemon-stats {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  .pokemon-stats li {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  
+  /* Estilização das cores */
+  .pokemon-attribute {
+    color: var(--green);
+  }
+  
+  /* Estilização da fonte */
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+  
+  /* Animação de fade-in */
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Aplicar animação de fade-in ao carregar a página */
+  #pokemon-container {
+    animation: fade-in 0.5s ease-in-out;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--blue);
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--yellow);
+    margin-right: 20px;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-search {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-search input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  .navbar-search button {
+    padding: 5px 10px;
+    background-color: var(--yellow);
+    border: none;
+    border-radius: 5px;
+    color: var(--green);
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  #clear-button {
+    padding: 5px 10px;
+    background-color: var(--red);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  #pokemon-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+  }
+  
+  .navbar-logo {
+    width: 100px;
+    height: 50px;
+    margin-right: 40px;
+  }
+</style>
